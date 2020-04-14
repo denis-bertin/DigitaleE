@@ -18,7 +18,7 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  /*background-image: url("/w3images/mac.jpg");*/
+  background-image: url("/w3images/mac.jpg");
   min-height: 100%;
 }
 
@@ -58,8 +58,9 @@ body, html {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+<!-- Header with full-height image bgimg-1 -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+  <img src="" >
   <div class="w3-display-left w3-text-white" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Afin d'amener votre entrprise vers un avenir connect&eacute;</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Afin d'amener votre entrprise vers un avenir connect&eacute;</span><br>
