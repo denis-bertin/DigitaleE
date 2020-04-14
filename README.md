@@ -1,2 +1,3 @@
 # DigitaleE
-digitale entreprise web site
+Digitalisation des Entreprise
+Site Web, outils professionnels...
