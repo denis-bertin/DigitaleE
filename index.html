@@ -296,7 +296,7 @@ body, html {
     <p><input class="w3-input w3-border" type="text" placeholder="Subject" required id="Subject"></p>
     <p><input class="w3-input w3-border" type="text" placeholder="Message" required id="Message"></p>
     <p>
-      <button class="w3-button w3-black" onclick="window.location='mailto:'+document.getElementById('Email').value+'?subject='+document.getElementById('Subject').value+';">
+      <a href=""><button class="w3-button w3-black" onclick="self.location.href = 'mailto:example@example.com';">
         <i class="fa fa-paper-plane"></i> SEND MESSAGE
       </button>
     </p>
