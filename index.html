@@ -343,14 +343,16 @@ function onClick(element) {
 
 // Modal Image Gallery
 function myMail() {
-  alert(
-    'Vous allez envoyer ce mail : ' + 
+    var r = confirm('Vous allez envoyer ce mail : ' + 
     '<br> adresse mail : ' + document.getElementById('Email').value +
     '<br> Nom : ' + document.getElementById('Name').value + 
     '<br> Sujet : ' + document.getElementById('Subject').value +
     '<br> Message : ' + document.getElementById('Message').value +
-    '<br> <a href="mailto:denis.bertin37@icloud.com?Subject='+ document.getElementById('Subject').value +'&body=' + document.getElementById('Message').value + '<br>' + document.getElementById('Name').value + '<br>' + document.getElementById('Email').value + '">Pour envoyer ce message cliquez ici!</a>'
-  );
+    '');
+  if (r == true) {
+    window.location.href = 'mailto:denis.bertin37@icloud.com?Subject=' + document.getElementById('Subject').value + '&body=' + document.getElementById('Message').value + '<br>' + document.getElementById('Name').value + '<br>' + document.getElementById('Email').value;
+  }
+  //document.getElementById("demo").innerHTML = txt;
 }
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
