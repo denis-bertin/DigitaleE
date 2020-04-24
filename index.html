@@ -343,13 +343,14 @@ function onClick(element) {
 
 // Modal Image Gallery
 function myMail() {
-  alert('Vous allez envoyer ce mail : ' + 
-        '<br> adresse mail : ' + getElementById('Email') +
-        '<br> Nom : ' + getElementById('Name') + 
-        '<br> Sujet : ' + getElementById('Subject') +
-        '<br> Message : ' + getElementById('Message') +
-        '<br> <a href="mailto:denis.bertin37@icloud.com?Subject='+ getElementById('Subject') +'&body=' + getElementById('Message') + '<br>' + getElementById('Name') + '<br>' + getElementById('Email')'">Pour envoyer ce message cliquez ici!</a>'
-        );
+  alert(
+    'Vous allez envoyer ce mail : ' + 
+    '<br> adresse mail : ' + getElementById('Email') +
+    '<br> Nom : ' + getElementById('Name') + 
+    '<br> Sujet : ' + getElementById('Subject') +
+    '<br> Message : ' + getElementById('Message') +
+    '<br> <a href="mailto:denis.bertin37@icloud.com?Subject='+ getElementById('Subject') +'&body=' + getElementById('Message') + '<br>' + getElementById('Name') + '<br>' + getElementById('Email') + '">Pour envoyer ce message cliquez ici!</a>'
+  );
 }
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
