@@ -294,12 +294,19 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +33 0684840459</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: denis.bertin37@icloud.com</p>
     <br>
-    <p><input class="w3-input w3-border" type="text" placeholder="Name" required id="Name"></p>
+    <p><input class="w3-input w3-border" type="text" placeholder="Nom" required id="Name"></p>
     <p><input class="w3-input w3-border" type="text" placeholder="Email" required id="Email"></p>
-    <p><input class="w3-input w3-border" type="text" placeholder="Subject" required id="Subject"></p>
+    <p>
+      <select class="w3-input w3-border" placeholder="Sujet" required id="Subject">
+        <option>Informations Diverses</option>
+        <option>Projet ou demande d'&eacute;tude</option>
+        <option>SAV</option>
+      </select>
+    </p>
     <p><input class="w3-input w3-border" type="text" placeholder="Message" required id="Message"></p>
     <p>
-      <a href=""><button class="w3-button w3-black" onclick="alert();">
+      <a href=""><button class="w3-button w3-black" onclick="
+      ">
         <i class="fa fa-paper-plane"></i> SEND MESSAGE
       </button>
     </p>
@@ -325,6 +332,8 @@ body, html {
 </footer>
  
 <script>
+
+
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -333,6 +342,16 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
+// Modal Image Gallery
+function myMail() {
+  alert('Vous allez envoyer ce mail : ' + 
+        '<br> adresse mail : ' + getElementById('Email') +
+        '<br> Nom : ' + getElementById('Name') + 
+        '<br> Sujet : ' + getElementById('Subject') +
+        '<br> Message : ' + getElementById('Message') +
+        '<br> <a href="mailto:denis.bertin37@icloud.com?Subject='+ getElementById('Subject') +'&body=' + getElementById('Message') + '<br>' + getElementById('Name') + '<br>' + getElementById('Email')'">Pour envoyer ce message cliquez ici!</a>'
+        );
+}
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 var mySidebar = document.getElementById("mySidebar");
