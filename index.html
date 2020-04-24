@@ -343,12 +343,13 @@ function onClick(element) {
 
 // Modal Image Gallery
 function myMail() {
-    var r = confirm('Vous allez envoyer ce mail : ' + 
-    '<br> adresse mail : ' + document.getElementById('Email').value +
-    '<br> Nom : ' + document.getElementById('Name').value + 
-    '<br> Sujet : ' + document.getElementById('Subject').value +
-    '<br> Message : ' + document.getElementById('Message').value +
-    '');
+    var r = confirm(
+      'Vous allez envoyer ce mail : ' + 
+      '<br> adresse mail : ' + document.getElementById('Email').value +
+      '<br> Nom : ' + document.getElementById('Name').value + 
+      '<br> Sujet : ' + document.getElementById('Subject').value +
+      '<br> Message : ' + document.getElementById('Message').value
+      );
   if (r == true) {
     window.location.href = 'mailto:denis.bertin37@icloud.com?Subject=' + document.getElementById('Subject').value + '&body=' + document.getElementById('Message').value + '<br>' + document.getElementById('Name').value + '<br>' + document.getElementById('Email').value;
   }
