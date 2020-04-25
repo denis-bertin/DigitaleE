@@ -294,21 +294,23 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +33 0684840459</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: denis.bertin37@icloud.com</p>
     <br>
-    <p><input class="w3-input w3-border" type="text" placeholder="Nom" required id="Name"></p>
-    <p><input class="w3-input w3-border" type="text" placeholder="Email" required id="Email"></p>
-    <p>
-      <select class="w3-input w3-border" placeholder="Sujet" required id="Subject">
-        <option>Informations Diverses</option>
-        <option>Projet ou demande d'&eacute;tude</option>
-        <option>SAV</option>
-      </select>
-    </p>
-    <p><input class="w3-input w3-border" type="text" placeholder="Message" required id="Message"></p>
-    <p>
-      <button class="w3-button w3-black" onclick="myMail();">
-        <i class="fa fa-paper-plane"></i> SEND MESSAGE
-      </button>
-    </p>
+    <form>
+      <p><input class="w3-input w3-border" type="text" placeholder="Nom" required id="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required id="Email"></p>
+      <p>
+        <select class="w3-input w3-border" placeholder="Sujet" required id="Subject">
+          <option>Informations Diverses</option>
+          <option>Projet ou demande d'&eacute;tude</option>
+          <option>SAV</option>
+        </select>
+      </p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required id="Message"></p>
+      <p>
+        <button class="w3-button w3-black" onclick="myMail();">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
     <!-- Image of location/map 
     <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">-->
   </div>
