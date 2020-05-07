@@ -357,7 +357,7 @@ function myMail() {
       '\n Sujet : ' + document.getElementById('Subject').value +
       '\n Message : ' + document.getElementById('Message').value
       );
-    alert(r)
+    alert(r);
   if (r == true) {
     window.location.href = 'mailto:denis.bertin37@icloud.com?Subject=' + document.getElementById('Subject').value + '&body=' + document.getElementById('Message').value + '%0A%0A' + document.getElementById('Name').value + '%0A' + document.getElementById('Email').value;
   }
