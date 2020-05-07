@@ -97,7 +97,10 @@ body, html {
       <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large">D&eacute;veloppement</p>
       <p>
-        Notre travail de fond. Vous développer la solution digitale qui vous corresponde.
+        Notre travail de fond.
+        <br>
+        Vous développer la solution digitale qui vous correspond.
+
       </p>
     </div>
     <div class="w3-quarter">
@@ -105,6 +108,8 @@ body, html {
       <p class="w3-large">Support</p>
       <p>
         Parce que, comme tout outils, nous devons apprendre à l'utiliser, mais aussi à le péréniser.
+        <br>
+        Pour cela, nous nous déplaçons sur site au besoin, et pouvons aussi réaliser une intervention à distance suivant le système et l'impact.
       </p>
     </div>
   </div>
@@ -352,6 +357,7 @@ function myMail() {
       '\n Sujet : ' + document.getElementById('Subject').value +
       '\n Message : ' + document.getElementById('Message').value
       );
+    alert(r)
   if (r == true) {
     window.location.href = 'mailto:denis.bertin37@icloud.com?Subject=' + document.getElementById('Subject').value + '&body=' + document.getElementById('Message').value + '%0A%0A' + document.getElementById('Name').value + '%0A' + document.getElementById('Email').value;
   }
