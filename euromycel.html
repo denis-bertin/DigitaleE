@@ -37,15 +37,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Tableau de Bord</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fermer le Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  G&eacute;n&eacute;ral</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Recherche</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Enregistrer donn&eacute;es</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  G&eacute;n&eacute;alogie</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Actualit&eacute;s</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Historique</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Param&ecirc;tres</a><br><br>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fermer le Menu</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  G&eacute;n&eacute;ral</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('rechercher')><i class="fa fa-eye fa-fw"></i>  Recherche</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('ajouter_mesure')><i class="fa fa-users fa-fw"></i>  Ajouter une mesure</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('genealogie')><i class="fa fa-bullseye fa-fw"></i>  G&eacute;n&eacute;alogie</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Actualit&eacute;s</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Historique</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Param&ecirc;tres</a><br><br>
   </div>
 </nav>
 
@@ -104,19 +103,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
 
-  <div class="w3-panel">
+  <div class="w3-panel w3-hide" id="ajouter_mesure">
     <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Regions</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
-      </div>
       <div class="w3-twothird">
-        <h5>Feeds</h5>
+        <h5>Ajouter une mesure</h5>
         <table class="w3-table w3-striped w3-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
+            <td><i class="fa fa-capsules w3-text-blue w3-large"></i></td>
+            <td><i>Numéro d'échantillon</i></td>
+            <td><input type="text" name="numero_echantillon"></td>
           </tr>
           <tr>
             <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
@@ -153,7 +148,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
   <hr>
-  <div class="w3-container">
+  <div class="w3-container w3-hide" id="rechercher">
     <h5>General Stats</h5>
     <p>New Visitors</p>
     <div class="w3-grey">
@@ -172,7 +167,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr>
 
-  <div class="w3-container">
+  <div class="w3-container w3-hide" id="partager">
     <h5>Countries</h5>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
@@ -203,7 +198,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
   </div>
   <hr>
-  <div class="w3-container">
+  <div class="w3-container w3-hide" id="les_utilisateurs">
     <h5>Recent Users</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
@@ -222,7 +217,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr>
 
-  <div class="w3-container">
+  <div class="w3-container w3-hide" id="genealogie">
     <h5>Recent Comments</h5>
     <div class="w3-row">
       <div class="w3-col m2 text-center">
