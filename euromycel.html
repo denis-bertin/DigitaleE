@@ -7,7 +7,94 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  /* It's supposed to look like a tree diagram */
+.tree, .tree ul, .tree li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.tree {
+  margin: 0 0 1em;
+  text-align: center;
+}
+.tree, .tree ul {
+  display: table;
+}
+.tree ul {
+  width: 100%;
+}
+.tree li {
+display: table-cell;
+padding: .5em 0;
+vertical-align: top;
+}
+/* _________ */
+.tree li:before {
+  outline: solid 1px #666;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.tree li:first-child:before {left: 50%;}
+.tree li:last-child:before {right: 50%;}
+
+.tree button, .tree span {
+  border: solid .1em #666;
+  border-radius: .2em;
+  display: inline-block;
+  margin: 0 .2em .5em;
+  padding: .2em .5em;
+  position: relative;
+  overflow: none;
+}
+button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  /* overflow: hidden; */
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:hover {
+color: #000!important;
+background-color: #ccc!important;
+}
+/* If the tree represents DOM structure */
+.tree button {
+  font-family: monaco, Consolas, 'Lucida Console', monospace;
+
+}
+
+.tree ul:before, .tree button:before, .tree span:before {
+    outline: solid 1px #666;
+    content: "";
+    height: .5em;
+    left: 50%;
+    position: absolute;
+}
+.tree ul:before {
+    top: -.5em;
+}
+.tree button:before, .tree span:before {
+    top: -.55em;
+}
+
+/* The root node doesn't connect upwards */
+.tree > li {
+  margin-top: 0;
+}
+.tree > li:before, .tree > li:after, .tree > li > button:before, .tree > li > span:before {
+  outline: none;
+}
 </style>
 <body class="w3-light-grey">
 
@@ -235,24 +322,72 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <div class="w3-container w3-hide" id="genealogie">
     <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="https://www.w3schools.com/w3images/avatar3.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="https://www.w3schools.com/w3images/avatar1.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
+    <figure>
+      <ul class="tree">
+        <li><button>html</button>
+          <ul>
+            <li><button>head</button>
+              <ul>
+                <li><button>title</button></li>
+              </ul>
+            </li>
+            <li><button>body</button>
+              <ul>
+                <li><button>header</button>
+                  <ul>
+                    <li><button>h1</button></li>
+                    <li><button>p</button></li>
+                  </ul>
+                </li>
+                <li><button>nav</button>
+                  <ul>
+                    <li><button>a</button></li>
+                    <li><button>a</button></li>
+                    <li><button>a</button></li>
+                    <li><button>a</button></li>
+                  </ul>
+                </li>
+                <li><button>main</button>
+                  <ul>
+                    <li><button>h1</button></li>
+                    <li><button>article</button>
+                      <ul>
+                        <li><button>h2</button></li>
+                        <li><button>p</button></li>
+                        <li><button>p</button></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><button>aside</button>
+                  <ul>
+                    <li><button>h2</button></li>
+                    <li><button>p</button></li>
+                    <li><button>p</button>
+                      <ul>
+                        <li><button>a</button></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><button>footer</button>
+                  <ul>
+                    <li><button>nav</button>
+                      <ul>
+                        <li><button>a</button></li>
+                        <li><button>a</button></li>
+                        <li><button>a</button></li>
+                        <li><button>a</button></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </figure>
     </div>
   </div>
   <br>
