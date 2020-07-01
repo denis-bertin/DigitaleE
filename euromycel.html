@@ -95,6 +95,9 @@ background-color: #ccc!important;
 .tree > li:before, .tree > li:after, .tree > li > button:before, .tree > li > span:before {
   outline: none;
 }
+figure {
+  overflow: auto;
+}
 </style>
 <body class="w3-light-grey">
 
@@ -124,11 +127,11 @@ background-color: #ccc!important;
     <h5>Tableau de Bord</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fermer le Menu</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  G&eacute;n&eacute;ral</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('rechercher')"><i class="fa fa-eye fa-fw"></i>  Recherche</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('ajouter_mesure')"><i class="fa fa-users fa-fw"></i>  Ajouter une mesure</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="myFuncModalDisplay('genealogie')"><i class="fa fa-bullseye fa-fw"></i>  G&eacute;n&eacute;alogie</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black de-db-menu" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fermer le Menu</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding de-db-menu" ><i class="fa fa-users fa-fw"></i>  G&eacute;n&eacute;ral</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding de-db-menu rechercher" onclick="myFuncModalDisplay('rechercher')"><i class="fa fa-eye fa-fw"></i>  Recherche</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding de-db-menu ajouter_mesure" onclick="myFuncModalDisplay('ajouter_mesure')"><i class="fa fa-users fa-fw"></i>  Ajouter une mesure</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding de-db-menu genealogie" onclick="myFuncModalDisplay('genealogie')"><i class="fa fa-bullseye fa-fw"></i>  G&eacute;n&eacute;alogie</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Actualit&eacute;s</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Historique</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Param&ecirc;tres</a><br><br>
@@ -150,7 +153,7 @@ background-color: #ccc!important;
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter" onclick="myFuncModalDisplay('ajouter_mesure')">
       <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class='fa fa-plus-square' style='font-size:48px;color:white'></i></div>
+        <div class="w3-left"><i class='fa fa-chevron-circle-down' style='font-size:48px;color:white'></i></div>
         <div class="w3-right">
           <h3></h3>
         </div>
@@ -189,8 +192,8 @@ background-color: #ccc!important;
       </div>
     </div>
   </div>
-
-  <div class="w3-panel w3-hide" id="ajouter_mesure">
+<!-- Ajouter Mesure-->
+  <div class="w3-container de-menu w3-hide" id="ajouter_mesure">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Ajouter une mesure</h5>
@@ -250,27 +253,99 @@ background-color: #ccc!important;
       </div>
     </div>
   </div>
-  <hr>
-  <div class="w3-container w3-hide" id="rechercher">
-    <h5>General Stats</h5>
-    <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
-    </div>
 
-    <p>New Users</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+<!--Rechercher-->
+  <div class="w3-container de-menu w3-hide" id="rechercher">
+    <h5>Rechercher</h5>
+    <input type="search" class="w3-input" id="rechercher" onkeypress="myFuncSearchItems(this.value)">
+    <div id="resultats_class">
+      Entrez un &eacute;l&eacute;ment &agrave; rechercher...
     </div>
-
-    <p>Bounce Rate</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+    <div id="resultats_id">
+    </div>
+    <div class="w3-hide">
+      <p>New Visitors</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+      </div>
+      <p>New Users</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+      </div>
+      <p>Bounce Rate</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+      </div>
     </div>
   </div>
-  <hr>
 
-  <div class="w3-container w3-hide" id="partager">
+<!-- Généalogie -->
+  <div class="w3-container de-menu w3-hide" id="genealogie">
+    <h5>G&eacute;n&eacute;alogie</h5>
+    <figure>
+      <ul class="tree">
+        <li>
+            <button onmouseover="GenefillesOver(this.id+'Btn')" onmouseout="GenefillesOut(this.id+'Btn')" id="T0001">
+              T0001
+              <i class="fa fa-chevron-circle-down T0001Btn w3-hide" onclick="GenefillesClick(this.id)" id="T0001PMx"></i>
+            </button>
+          <ul class="T0001PMx w3-hide">
+            <li>
+              <button onmouseover="GenefillesOver(this.id+'Btn')" onmouseout="GenefillesOut(this.id+'Btn')" id="T0001PM0001">
+                T0001PM0001
+                <i class="fa fa-chevron-circle-down T0001PM0001Btn w3-hide" onclick="GenefillesClick(this.id)" id="T0001PM0001PFx"></i>
+              </button>
+              <ul  class="T0001PM0001PFx w3-hide">
+                <li><button>T0001PM0001PF0001</button></li>
+                <li><button>T0001PM0001PF0002</button></li>
+                <li><button>T0001PM0001PF0003</button></li>
+                <li><button>T0001PM0001PF0004</button></li>
+              </ul>
+            </li>
+            <li>
+              <button onmouseover="GenefillesOver(this.id+'Btn')" onmouseout="GenefillesOut(this.id+'Btn')" id="T0001PM0002">
+                T0001PM0002
+                <i class="fa fa-chevron-circle-down T0001PM0002Btn w3-hide" onclick="GenefillesClick(this.id)" id="T0001PM0002PFx"></i>
+              </button>
+              <ul  class="T0001PM0002PFx w3-hide">
+                <li><button>T0001PM0002PF0001</button></li>
+                <li><button>T0001PM0002PF0002</button></li>
+                <li><button>T0001PM0002PF0003</button></li>
+                <li><button>T0001PM0002PF0004</button></li>
+              </ul>
+            </li>
+            <li>
+              <button onmouseover="GenefillesOver(this.id+'Btn')" onmouseout="GenefillesOut(this.id+'Btn')" id="T0001PM0003">
+                T0001PM0003
+                <i class="fa fa-chevron-circle-down T0001PM0003Btn w3-hide" onclick="GenefillesClick(this.id)" id="T0001PM0003PFx"></i>
+              </button>
+              <ul  class="T0001PM0003PFx w3-hide">
+                <li><button>T0001PM0003PF0001</button></li>
+                <li><button>T0001PM0003PF0002</button></li>
+                <li><button>T0001PM0003PF0003</button></li>
+                <li><button>T0001PM0003PF0004</button></li>
+              </ul>
+            </li>
+            <li>
+              <button onmouseover="GenefillesOver(this.id+'Btn')" onmouseout="GenefillesOut(this.id+'Btn')" id="T0001PM0004">
+                T0001PM0004
+                <i class="fa fa-chevron-circle-down T0001PM0004Btn w3-hide" onclick="GenefillesClick(this.id)" id="T0001PM0004PFx"></i>
+              </button>
+              <ul  class="T0001PM0004PFx w3-hide">
+                <li><button>T0001PM0004PF0001</button></li>
+                <li><button>T0001PM0004PF0002</button></li>
+                <li><button>T0001PM0004PF0003</button></li>
+                <li><button>T0001PM0004PF0004</button></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </figure>
+  </div>
+
+<!--Partager Infos-->
+  <div class="w3-container de-menu w3-hide" id="partager">
     <h5>Countries</h5>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
@@ -300,8 +375,9 @@ background-color: #ccc!important;
     </table><br>
     <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
   </div>
-  <hr>
-  <div class="w3-container w3-hide" id="les_utilisateurs">
+
+<!-- Utilisateurs-->
+  <div class="w3-container de-menu w3-hide" id="les_utilisateurs">
     <h5>Recent Users</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
@@ -318,79 +394,9 @@ background-color: #ccc!important;
       </li>
     </ul>
   </div>
-  <hr>
 
-  <div class="w3-container w3-hide" id="genealogie">
-    <h5>Recent Comments</h5>
-    <figure>
-      <ul class="tree">
-        <li><button>html</button>
-          <ul>
-            <li><button>head</button>
-              <ul>
-                <li><button>title</button></li>
-              </ul>
-            </li>
-            <li><button>body</button>
-              <ul>
-                <li><button>header</button>
-                  <ul>
-                    <li><button>h1</button></li>
-                    <li><button>p</button></li>
-                  </ul>
-                </li>
-                <li><button>nav</button>
-                  <ul>
-                    <li><button>a</button></li>
-                    <li><button>a</button></li>
-                    <li><button>a</button></li>
-                    <li><button>a</button></li>
-                  </ul>
-                </li>
-                <li><button>main</button>
-                  <ul>
-                    <li><button>h1</button></li>
-                    <li><button>article</button>
-                      <ul>
-                        <li><button>h2</button></li>
-                        <li><button>p</button></li>
-                        <li><button>p</button></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><button>aside</button>
-                  <ul>
-                    <li><button>h2</button></li>
-                    <li><button>p</button></li>
-                    <li><button>p</button>
-                      <ul>
-                        <li><button>a</button></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><button>footer</button>
-                  <ul>
-                    <li><button>nav</button>
-                      <ul>
-                        <li><button>a</button></li>
-                        <li><button>a</button></li>
-                        <li><button>a</button></li>
-                        <li><button>a</button></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </figure>
-    </div>
-  </div>
-  <br>
+
+<!-- info page-->
   <div class="w3-container w3-dark-grey w3-padding-32">
     <div class="w3-row">
       <div class="w3-container w3-third">
@@ -418,6 +424,7 @@ background-color: #ccc!important;
   <!-- Footer -->
   <footer class="w3-container w3-padding-16 w3-light-grey">
     <h4>FOOTER</h4>
+    <p>Develop by <a href="https://denis-bertin.github.io/DigitaleE/" title="W3.CSS" target="_blank" class="w3-hover-text-green">DigitaleE</a></p>
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
 
@@ -439,8 +446,75 @@ background-color: #ccc!important;
     }
   }
 
+  function GenefillesOver(IdFilles){
+    var z = document.getElementsByClassName(IdFilles);
+    for (i = 0; i < z.length; i++) {
+      if (z[i].className.indexOf("w3-show") == -1) {
+        z[i].className += " w3-show";
+      }
+    }
+  }
+
+  function GenefillesOut(IdFilles){
+    var z = document.getElementsByClassName(IdFilles);
+    for (i = 0; i < z.length; i++) {
+      if (z[i].className.indexOf("w3-show") !== -1) {
+        z[i].className = z[i].className.replace(" w3-show", "");
+      }
+    }
+  }
+
+  function GenefillesClick(IdFilles){
+    var x = document.getElementById(IdFilles);
+    if (x.className.indexOf("fa-chevron-circle-down") !== -1) {
+      x.className = x.className.replace(" fa-chevron-circle-down ", " fa-chevron-circle-up ");
+    } else {
+      x.className = x.className.replace(" fa-chevron-circle-up ", " fa-chevron-circle-down ");
+    }
+    var z = document.getElementsByClassName(IdFilles);
+    for (i = 0; i < z.length; i++) {
+      if (z[i].className.indexOf("w3-show") !== -1) {
+        z[i].className = z[i].className.replace(" w3-show", "");
+
+      } else {
+        z[i].className += " w3-show";
+      }
+    }
+  }
+
+  function myFuncSearchItems(Item){
+    var ByClass = document.getElementsByClassName(Item);
+    var ById = document.getElementById(Item);
+    if(ByClass.length >= 1){
+      document.getElementById('resultats_class').innerHTML = "Il y a "+ByClass.length+ " resultats ";
+    } else {
+      document.getElementById('resultats_class').innerHTML = "Il n&prime;y a aucune correspondance...";
+    }
+    if(ById !== null){
+      document.getElementById('resultats_id').innerHTML = "Il y a 1 resultat ";
+    } else {
+      document.getElementById('resultats_id').innerHTML = "Il n&prime;y a aucune correspondance...";
+    }
+  }
+
   function myFuncModalDisplay(id) {
     var x = document.getElementById(id);
+    var y = document.getElementsByClassName("de-menu");
+    var z = document.getElementsByClassName("de-db-menu");
+    for (i = 0; i < y.length; i++) {
+      if (y[i].className.indexOf("w3-show") == -1) {
+      } else {
+        y[i].className = y[i].className.replace(" w3-show", "");
+      }
+    }
+    var z = document.getElementsByClassName("de-db-menu");
+    for (i = 0; i < z.length; i++) {
+      if (z[i].className.indexOf(id) == -1) {
+        z[i].className = z[i].className.replace(" w3-blue", "");
+      } else {
+        z[i].className += " w3-blue";
+      }
+    }
     if (x.className.indexOf("w3-show") == -1) {
       x.className += " w3-show";
     } else {
