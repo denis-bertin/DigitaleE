@@ -27,6 +27,8 @@ body, html {
   padding: 16px;
 }
 </style>
+<!-- Ipfy Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172167171-1"></script>
 <script>
@@ -123,20 +125,6 @@ body, html {
     </div>
   </div>
 </div>
-
-<!-- Promo Section - "We know design"
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"></i> View Our Works</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="https://www.w3schools.com/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div> -->
 
 <!-- Team Section -->
 <div class="w3-container" style="padding:128px 16px" id="team">
@@ -337,6 +325,19 @@ body, html {
   </div>
 </div>
 
+
+<!-- Outils utiles - "Mes outils utiles" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <h3>Les outils du quotidien</h3>
+    <div class="w3-col l4 m6">
+      <p>
+        Mon adresse IP Public est <a id="gfg"></a>
+      <p>
+    </div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -354,7 +355,7 @@ body, html {
 </footer>
  
 <script>
-
+$.getJSON("https://api.ipify.org?format=json", function(data) { $("#gfg").html(data.ip); }) 
 
 // Modal Image Gallery
 function onClick(element) {
